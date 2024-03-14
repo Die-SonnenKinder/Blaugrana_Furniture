@@ -10,5 +10,5 @@ class LoginRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_register)
     }
 
-    //Hello test there
+    //Test pull request settings
 }
