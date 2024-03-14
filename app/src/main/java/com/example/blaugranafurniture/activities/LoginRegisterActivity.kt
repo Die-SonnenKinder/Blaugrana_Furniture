@@ -11,4 +11,5 @@ class LoginRegisterActivity : AppCompatActivity() {
     }
 
     //Test pull request settings
+    //Test 2nd timne
 }
