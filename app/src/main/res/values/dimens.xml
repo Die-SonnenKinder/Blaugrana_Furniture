@@ -2,6 +2,7 @@
 <resources>
     <dimen name="tvRightAddressMargin">120</dimen>
     <dimen name="smallButtonWidth">200</dimen>
+    <dimen name="bigButtonWidth">250</dimen>
     <dimen name="smallButtonHeight">50</dimen>
     <dimen name="buttonCorners">8</dimen>
 </resources>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="h5">
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/colorOnPrimary</item>
+        <item name="android:textSize">@dimen/h5TextSize</item>
+    </style>
+
     <style name="h4">
         <item name="android:fontFamily">@font/poppins_light</item>
         <item name="android:textColor">@color/black</item>
@@ -46,12 +52,22 @@
     <style name="editText">
         <item name="android:background">@drawable/white_background</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/g_blue_gray200</item>
         <item name="singleLine">true</item>
         <item name="android:textStyle">bold</item>
         <item name="android:fontFamily">@font/poppins_light</item>
     </style>
 
+    <style name="ggfbButton">
+        <item name="android:background">@drawable/white_background_2</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/h5TextSize</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
 
+    <dimen name="h5TextSize">12sp</dimen>
     <dimen name="h4TextSize">32sp</dimen>
     <dimen name="h3TextSize">24sp</dimen>
     <dimen name="h2TextSize">18sp</dimen>
