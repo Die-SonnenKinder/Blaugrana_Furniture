@@ -5,4 +5,15 @@
     <string name="brandName">BLAUGRANA FURNITURE\n</string>
     <string name="quality">It is now easy to reach the best quality\namong all the products on the internet.</string>
     <string name="start">START</string>
+    <string name="email">Email</string>
+    <string name="pw">Password</string>
+    <string name="Fname">First name</string>
+    <string name="Lih">Have an account? Log in here</string>
+    <string name="Rh">Do not have an account? Register here</string>
+    <string name="Lname">Last name</string>
+    <string name="FP">Forgot password?</string>
+    <string name="Rgt">REGISTER</string>
+    <string name="Li">LOG IN</string>
+    <string name="Gg">Google</string>
+    <string name="Fb">Facebook</string>
 </resources>

@@ -1,6 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/furniture_wallpaper"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/ellipse"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/guidelineEllipseBottom"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
+        app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
+        app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#98000000"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/brandName"
+        style="@style/h1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:shadowColor="@color/black"
+        android:shadowDx="4"
+        android:shadowDy="6"
+        android:shadowRadius="1"
+        android:text="@string/brandName"
+        android:textAlignment="center"
+        android:textColor="@color/g_white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop" />
+
+    <TextView
+        android:id="@+id/tvRightAddressForShopping"
+        style="@style/h4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:gravity="center"
+        android:text="Let's Log In"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/ellipse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop"
+        app:layout_constraintVertical_bias="0.15"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvQuality"
+        style="@style/h5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:text="@string/Rh"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/tvRightAddressForShopping"
+        app:layout_constraintStart_toStartOf="@id/tvRightAddressForShopping"
+        app:layout_constraintTop_toBottomOf="@id/tvRightAddressForShopping" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="@dimen/bigButtonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        style="@style/editText"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="@id/tvRightAddressForShopping"
+        app:layout_constraintStart_toStartOf="@id/tvRightAddressForShopping"
+        app:layout_constraintTop_toBottomOf="@id/tvRightAddressForShopping"
+        tools:ignore="Autofill" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="@dimen/bigButtonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        style="@style/editText"
+        android:hint="@string/pw"
+        android:inputType="textPassword"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@id/Email"
+        app:layout_constraintStart_toStartOf="@id/Email"
+        app:layout_constraintTop_toBottomOf="@id/Email"
+        tools:ignore="Autofill" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/blueButtonStyle"
+        android:layout_width="@dimen/bigButtonWidth"
+        android:layout_height="@dimen/smallButtonHeight"
+        android:id="@+id/register"
+        android:layout_marginTop="10dp"
+        android:text="@string/Li"
+        app:layout_constraintEnd_toEndOf="@id/Password"
+        app:layout_constraintStart_toStartOf="@id/Password"
+        app:layout_constraintTop_toBottomOf="@id/Password" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ggfbButton"
+        android:layout_width="121dp"
+        android:layout_height="33dp"
+        android:id="@+id/ggfbButton"
+        android:layout_marginTop="40dp"
+        android:text="@string/Gg"
+        app:layout_constraintEnd_toEndOf="@id/register"
+        app:layout_constraintStart_toLeftOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/register"/>
+
+    <ImageView
+        android:layout_width="121dp"
+        android:layout_height="36dp"
+        android:src="@drawable/google_login"
+        android:layout_marginTop="38dp"
+        app:layout_constraintEnd_toEndOf="@id/register"
+        app:layout_constraintStart_toLeftOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/register"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/ggfbButton"
+        android:layout_width="121dp"
+        android:layout_height="33dp"
+        android:id="@+id/email"
+        android:layout_marginTop="40dp"
+        android:text="@string/Fb"
+        app:layout_constraintStart_toStartOf="@id/register"
+        app:layout_constraintStart_toLeftOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/register"/>
+
+    <ImageView
+        android:layout_width="121dp"
+        android:layout_height="36dp"
+        android:src="@drawable/facebook_login"
+        android:layout_marginTop="38dp"
+        app:layout_constraintStart_toStartOf="@id/register"
+        app:layout_constraintStart_toLeftOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/register"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/FgPw"
+        style="@style/h5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="@string/FP"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/register"
+        app:layout_constraintStart_toLeftOf="@id/register"
+        app:layout_constraintTop_toBottomOf="@id/register" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.31" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
