@@ -10,6 +10,5 @@ class LoginRegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login_register)
     }
 
-    //Test pull request settings
-    //Test 2nd timne
+
 }
