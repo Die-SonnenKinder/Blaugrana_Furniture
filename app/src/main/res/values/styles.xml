@@ -2,8 +2,8 @@
 <resources>
 
     <style name="h4">
-        <item name="android:fontFamily">@font/poppins_thin</item>
-        <item name="android:textColor">@color/g_black</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/h4TextSize</item>
     </style>
 
@@ -52,10 +52,10 @@
     </style>
 
 
-    <dimen name="h4TextSize">35sp</dimen>
-    <dimen name="h3TextSize">28sp</dimen>
-    <dimen name="h2TextSize">17sp</dimen>
-    <dimen name="h1TextSize">12sp</dimen>
+    <dimen name="h4TextSize">32sp</dimen>
+    <dimen name="h3TextSize">24sp</dimen>
+    <dimen name="h2TextSize">18sp</dimen>
+    <dimen name="h1TextSize">14sp</dimen>
 
 
 </resources>

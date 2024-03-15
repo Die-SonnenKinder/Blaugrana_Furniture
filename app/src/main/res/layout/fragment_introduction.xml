@@ -39,6 +39,10 @@
         android:textAlignment="center"
         android:textStyle="bold"
         android:textColor="@color/g_white"
+        android:shadowColor="@color/black"
+        android:shadowDx="4"
+        android:shadowDy="6"
+        android:shadowRadius="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop"
@@ -46,7 +50,7 @@
 
     <TextView
         android:id="@+id/tvRightAddressForShopping"
-        style="@style/h3"
+        style="@style/h4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -58,10 +62,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/ellipse"
         app:layout_constraintEnd_toEndOf="@id/ellipse"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.64"
         app:layout_constraintStart_toStartOf="@id/ellipse"
         app:layout_constraintTop_toTopOf="@id/guidelineEllipseTop"
-        app:layout_constraintVertical_bias="0.582" />
+        app:layout_constraintVertical_bias="0.444" />
 
     <TextView
         android:id="@+id/tvQuality"
@@ -75,18 +79,20 @@
         android:textAlignment="center"
         android:gravity="center"
         android:text="@string/quality"
+        android:layout_marginTop="12dp"
         />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="@dimen/smallButtonWidth"
         android:layout_height="@dimen/smallButtonHeight"
         style="@style/whiteButtonStyle"
+
         app:layout_constraintTop_toBottomOf="@id/tvQuality"
         app:layout_constraintStart_toStartOf="@id/tvQuality"
         app:layout_constraintEnd_toEndOf="@id/tvQuality"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="START"
-
+        android:layout_marginTop="120dp"
         tools:ignore="HardcodedText" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -115,5 +121,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="388dp" />
+        app:layout_constraintGuide_percent="0.55" />
 </androidx.constraintlayout.widget.ConstraintLayout>
