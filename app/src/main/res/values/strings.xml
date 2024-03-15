@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BlaugranaFurniture</string>
+
+    <string name="rightAddress">The Right Address\nFor Shopping Anyday</string>
+    <string name="brandName">BLAUGRANA FURNITURE\n</string>
+    <string name="quality">It is now easy to reach the best quality\namong all the products on the internet.</string>
+    <string name="start">START</string>
 </resources>
