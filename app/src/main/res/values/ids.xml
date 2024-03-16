@@ -8,4 +8,6 @@
     <item name="register" type="id" />
     <item name="gg" type="id" />
     <item name="fb" type="id" />
+    <item name="registerButton" type="id" />
+    <item name="loginButton" type="id" />
 </resources>
