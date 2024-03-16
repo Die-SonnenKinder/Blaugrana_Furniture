@@ -85,6 +85,7 @@
         android:gravity="center"
         android:text="@string/quality"
         android:layout_marginTop="12dp"
+
         />
 
 
