@@ -13,11 +13,15 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.User
 import com.example.blaugranafurniture.databinding.FragmentRegisterBinding
+import com.example.blaugranafurniture.util.RegisterValidation
 import com.example.blaugranafurniture.util.Resource
 import com.example.blaugranafurniture.viewmodel.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.collectIndexed
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 private val TAG = "Register Fragment"
 @AndroidEntryPoint
@@ -51,20 +55,22 @@ class RegisterFragment: Fragment() {
 
         lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.register.collect {
-                    when (it) {
-                        is Resource.Loading -> {
-                            binding.buttonRegisterRegister.startAnimation()
+                viewModel.validation.collect { validation ->
+                    if (validation.email is RegisterValidation.Failed){
+                        withContext(Dispatchers.Main) {
+                            binding.edEmailLoginRegister.apply {
+                                requestFocus()
+                                error = validation.email.message
+                            }
                         }
-                        is Resource.Success -> {
-                            Log.d("Test", it.message.toString())
-                            binding.buttonRegisterRegister.revertAnimation()
+                    }
+                    if (validation.password is RegisterValidation.Failed){
+                        withContext(Dispatchers.Main) {
+                            binding.edPasswordLoginRegister.apply {
+                                requestFocus()
+                                error = validation.password.message
+                            }
                         }
-                        is Resource.Error -> {
-                            Log.e(TAG, it.message.toString())
-                            binding.buttonRegisterRegister.revertAnimation()
-                        }
-                        else -> Unit
                     }
                 }
             }
