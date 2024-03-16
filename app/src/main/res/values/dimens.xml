@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="tvRightAddressMargin">120</dimen>
-    <dimen name="smallButtonWidth">200</dimen>
-    <dimen name="bigButtonWidth">250</dimen>
-    <dimen name="smallButtonHeight">50</dimen>
-    <dimen name="buttonCorners">8</dimen>
-    <dimen name="editedTextHeight">48</dimen>
-    <dimen name="mediumButtonHeight">56</dimen>
+    <dimen name="tvRightAddressMargin">120dp</dimen>
+    <dimen name="smallButtonWidth">200dp</dimen>
+    <dimen name="bigButtonWidth">250dp</dimen>
+    <dimen name="smallButtonHeight">50dp</dimen>
+    <dimen name="buttonCorners">8dp</dimen>
+    <dimen name="editedTextHeight">48dp</dimen>
+    <dimen name="mediumButtonHeight">56dp</dimen>
 </resources>

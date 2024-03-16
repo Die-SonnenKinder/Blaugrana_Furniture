@@ -52,6 +52,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -76,7 +80,9 @@ dependencies {
 
     //Dagger nilt
     implementation("com.google.dagger:hilt-android:2.51")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
+
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("com.google.firebase:firebase-auth:22.3.1")

@@ -87,7 +87,7 @@
         />
 
     <EditText
-        android:id="@+id/edFirstName"
+        android:id="@+id/edFirstNameRegister"
         android:layout_width="0dp"
         android:layout_height="@dimen/editedTextHeight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
@@ -100,12 +100,12 @@
 
         />
     <EditText
-        android:id="@+id/edLastName"
+        android:id="@+id/edLastNameRegister"
         android:layout_width="0dp"
         android:layout_height="@dimen/editedTextHeight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
-        app:layout_constraintTop_toBottomOf="@id/edFirstName"
+        app:layout_constraintTop_toBottomOf="@id/edFirstNameRegister"
         style="@style/editText"
         android:hint="Last Name"
         android:inputType="textEmailAddress"
@@ -113,12 +113,12 @@
 
         />
     <EditText
-        android:id="@+id/edEmailLogin"
+        android:id="@+id/edEmailLoginRegister"
         android:layout_width="0dp"
         android:layout_height="@dimen/editedTextHeight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
-        app:layout_constraintTop_toBottomOf="@id/edLastName"
+        app:layout_constraintTop_toBottomOf="@id/edLastNameRegister"
         style="@style/editText"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -127,12 +127,12 @@
 
         />
     <EditText
-        android:id="@+id/edPasswordLogin"
+        android:id="@+id/edPasswordLoginRegister"
         android:layout_width="0dp"
         android:layout_height="@dimen/editedTextHeight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
-        app:layout_constraintTop_toBottomOf="@id/edEmailLogin"
+        app:layout_constraintTop_toBottomOf="@id/edEmailLoginRegister"
         style="@style/editText"
         android:hint="Password"
         android:inputType="textPassword"
@@ -141,16 +141,16 @@
 
 
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginLogin"
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+        android:id="@+id/buttonRegisterRegister"
         style="@style/blueButtonStyle"
         android:layout_height="@dimen/mediumButtonHeight"
         android:text="REGISTER"
-        app:layout_constraintTop_toBottomOf="@id/edPasswordLogin"
+        app:layout_constraintTop_toBottomOf="@id/edPasswordLoginRegister"
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
         android:layout_marginTop="32dp"
-        />
+        android:layout_width="0dp" />
 
 
     <ImageView
@@ -162,7 +162,7 @@
         android:background="@color/white"
         android:src="@drawable/facebook_login"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
-        app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin" />
+        app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -182,7 +182,7 @@
         android:layout_marginTop="12dp"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
-        app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin"
+        app:layout_constraintTop_toBottomOf="@id/buttonRegisterRegister"
         android:src="@drawable/google_login"/>
 
     <TextView
