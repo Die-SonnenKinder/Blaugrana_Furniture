@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="guideline" type="id" />
+    <item name="Fname" type="id" />
+    <item name="Lname" type="id" />
+    <item name="Email" type="id" />
+    <item name="Password" type="id" />
+    <item name="register" type="id" />
+    <item name="gg" type="id" />
+    <item name="fb" type="id" />
+</resources>
