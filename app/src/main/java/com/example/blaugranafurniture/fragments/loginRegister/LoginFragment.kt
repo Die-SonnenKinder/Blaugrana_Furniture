@@ -12,6 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.activities.ShoppingActivity
+import com.example.blaugranafurniture.databinding.FragmentLoginBinding
 import com.example.blaugranafurniture.util.Resource
 import com.example.blaugranafurniture.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -39,7 +40,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
         }
 
         binding.apply {
-            binding.buttonLoginlogin.setOnClickListener {
+            binding.buttonLoginLogin.setOnClickListener {
                 val email = edEmailLogin.text.toString().trim()
                 val password = edPasswordLogin.text.toString()
                 viewModel.login(email, password)
@@ -63,7 +64,7 @@ class LoginFragment: Fragment(R.layout.fragment_login) {
                         Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                         binding.buttonLoginLogin.revertAnimation()
                     }
-                    else -> unit
+                    else -> Unit
                 }
             }
         }
