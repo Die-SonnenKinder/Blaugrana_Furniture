@@ -126,7 +126,7 @@
 
         />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
         android:id="@+id/buttonLoginLogin"
         style="@style/blueButtonStyle"
         android:layout_height="@dimen/mediumButtonHeight"
@@ -135,7 +135,7 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineEllipseRight"
         app:layout_constraintStart_toStartOf="@id/guidelineEllipseLeft"
         android:layout_marginTop="16dp"
-        />
+        app:spinning_bar_color="@color/white"/>
 
 
     <ImageView
