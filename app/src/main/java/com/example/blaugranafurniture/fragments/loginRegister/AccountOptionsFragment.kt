@@ -8,26 +8,31 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.blaugranafurniture.R
+import com.example.blaugranafurniture.databinding.FragmentAccountOptionsBinding
+import com.example.blaugranafurniture.databinding.FragmentLoginBinding
 import com.example.blaugranafurniture.viewmodel.LoginViewModel
 
 class AccountOptionsFragment: Fragment(R.layout.fragment_account_options) {
-    private lateinit var binding: FragmentLoginBinding
-    private val viewModel by viewModels<LoginViewModel>()
+    private lateinit var binding: FragmentAccountOptionsBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(inflater)
+        binding = FragmentAccountOptionsBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.StartButton.setOnClickListener {
-            findNavController().navigate(R.id.action_introductionFragment_to_accountOptionsFragment)
+        binding.loginButton.setOnClickListener {
+            findNavController().navigate(R.id.action_accountOptionsFragment_to_loginFragment)
+        }
+        binding.registerButton.setOnClickListener {
+            findNavController().navigate(R.id.action_accountOptionsFragment_to_registerFragment)
         }
     }
 }
