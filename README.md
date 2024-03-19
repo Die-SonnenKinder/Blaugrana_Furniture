@@ -4,11 +4,11 @@ Blaugrana Furniture app targets people who are looking to buy high quality furni
 
 
 # preview
-![Start Screen]
+### Start Screen
 ![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/306e8935-6efc-44ba-b8ad-226e3ef51e27)
 
 
-![Main Screen]
+ ### Main Screen
 ![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/48d508b4-823c-45f3-8ebb-0a65f37cbf23)
 ![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/37ea236f-54c9-4491-bdba-5ab12753833f)
 
