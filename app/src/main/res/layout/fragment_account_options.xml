@@ -33,7 +33,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#98000000"
+        android:background="#97000000"
         tools:ignore="ContentDescription" />
 
     <TextView

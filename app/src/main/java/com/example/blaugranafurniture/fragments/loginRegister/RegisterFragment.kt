@@ -1,10 +1,12 @@
 package com.example.blaugranafurniture.fragments.loginRegister
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -12,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.blaugranafurniture.R
+import com.example.blaugranafurniture.activities.ShoppingActivity
 import com.example.blaugranafurniture.data.User
 import com.example.blaugranafurniture.databinding.FragmentRegisterBinding
 import com.example.blaugranafurniture.util.RegisterValidation
@@ -55,12 +58,31 @@ class RegisterFragment: Fragment() {
                     edEmailLoginRegister.text.toString().trim(),
                 )
                 val password = edPasswordLoginRegister.text.toString()
+1
                 viewModel.createAccountWithEmailAndPassword(user, password)
             }
         }
 
-        lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        lifecycleScope.launchWhenStarted {
+            viewModel.register.collect {
+                when(it){
+                    is Resource.Loading -> {
+                        binding.buttonRegisterRegister.startAnimation()
+                    }
+                    is Resource.Success -> {
+                        binding.buttonRegisterRegister.revertAnimation()
+                    }
+                    is Resource.Error -> {
+                        Log.e(TAG, it.message.toString())
+                        binding.buttonRegisterRegister.revertAnimation()
+
+                    }
+                    else -> Unit
+                }
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
                 viewModel.validation.collect { validation ->
                     if (validation.email is RegisterValidation.Failed){
                         withContext(Dispatchers.Main) {
@@ -79,7 +101,7 @@ class RegisterFragment: Fragment() {
                         }
                     }
                 }
-            }
+
         }
 
     }
