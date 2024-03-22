@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Blaugrana Furniture</string>
 
-    <string name="rightAddress">The Right Address\nFor Shopping Anyday</string>
+    <string name="rightAddress">The Right Address For\nShopping Anyday</string>
     <string name="brandName">BLAUGRANA FURNITURE\n</string>
-    <string name="quality">It is now easy to reach the best quality\namong all the products on the internet.</string>
+    <string name="quality">It is now easy to reach the best quality among all the products on the internet. Discover the best products by visiting: https://store.fcbarcelona.com/ </string>
     <string name="start">START</string>
     <string name="email">Email</string>
     <string name="pw">Password</string>
