@@ -1,9 +1,9 @@
 # Blaugrana Furniture
-Blaugrana Furniture app targets people who are looking to buy high quality furniture products for their house e.g : cupboards, chairs. And it targets merchants that sell furniture products to enable them to spread their markets and put their products online so everyone can check them out and order them.
+Blaugrana Furniture app targets people who are looking to buy high quality furniture products for their house e.g : Cupboards, Chairs. And it targets merchants that sell furniture products to enable them to spread their markets and put their products online so everyone can check them out and order them.
 
 
 
-# Preview
+# Preview (Just change the design, will update soon)
 ### Start Screen
 ![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/306e8935-6efc-44ba-b8ad-226e3ef51e27)
 
@@ -16,14 +16,14 @@ Blaugrana Furniture app targets people who are looking to buy high quality furni
 
 
 # Libraries and technologies used
-- Navigation component: one activity contains multiple fragments instead of creating multiple activites.
+- Navigation Component: one activity contains multiple fragments instead of creating multiple activites.
 - Firebase Auth: Manging Accounts/ Loging in and Registrations.
 - Firebase Firestore: Database for the system.
 - Firebase Storage: To store proucts images and user profile pictures.
 - MVVM & LiveData: Saperate logic code from views and save the state in case the screen configuration changes.
 - Coroutines: do some code in the background.
-- view binding: instead of inflating views manually view binding will take care of that.
+- View Binding: instead of inflating views manually view binding will take care of that.
 - Glide: Catch images and load them in imageView.
 
 # Progress
-I am adding new features whenever its approporiate, Currently i'm working on the Admin console app to be able to publish new products, manipulate them and review statistics of sales.
+I am adding new features whenever its approporiate. Currently i'm working on the Admin console app to be able to publish new products, manipulate them and review statistics of sales.
