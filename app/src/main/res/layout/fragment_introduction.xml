@@ -38,7 +38,7 @@
         android:gravity="center"
         android:text="@string/brandName"
         android:textAlignment="center"
-        android:textColor="@color/g_white"
+        android:textColor="@color/g_yellow"
         android:fontFamily="@font/fcbarcelona21"
         android:shadowColor="@color/black"
         android:shadowDx="4"
