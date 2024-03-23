@@ -1,34 +1,9 @@
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="19.589dp"
-    android:height="20.722dp"
-    android:viewportWidth="19.589"
-    android:viewportHeight="20.722">
-    <path
-        android:pathData="M13.962,19.972L5.614,19.972C2.549,19.972 0.195,18.864 0.863,14.407L1.641,8.366C2.049,6.141 3.472,5.29 4.717,5.29L14.895,5.29c1.263,0 2.6,0.915 3.076,3.076L18.749,14.407C19.316,18.361 17.028,19.972 13.962,19.972Z"
-        android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
-        android:fillColor="#00000000"
-        android:strokeColor="#97aabd"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M14.099,5.07A4.32,4.32 0,0 0,9.779 0.75h0A4.32,4.32 0,0 0,5.44 5.07L5.44,5.07"
-        android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
-        android:fillColor="#00000000"
-        android:strokeColor="#97aabd"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M12.745,9.574L12.699,9.574"
-        android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
-        android:fillColor="#00000000"
-        android:strokeColor="#97aabd"
-        android:strokeLineCap="round"/>
-    <path
-        android:pathData="M6.914,9.574L6.868,9.574"
-        android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
-        android:fillColor="#00000000"
-        android:strokeColor="#97aabd"
-        android:strokeLineCap="round"/>
+    android:width="576dp"
+    android:height="512dp"
+    android:viewportWidth="576"
+    android:viewportHeight="512">
+  <path
+      android:fillColor="#FF000000"
+      android:pathData="M0,24C0,10.7 10.7,0 24,0L69.5,0c22,0 41.5,12.8 50.6,32h411c26.3,0 45.5,25 38.6,50.4l-41,152.3c-8.5,31.4 -37,53.3 -69.5,53.3L170.7,288l5.4,28.5c2.2,11.3 12.1,19.5 23.6,19.5L488,336c13.3,0 24,10.7 24,24s-10.7,24 -24,24L199.7,384c-34.6,0 -64.3,-24.6 -70.7,-58.5L77.4,54.5c-0.7,-3.8 -4,-6.5 -7.9,-6.5L24,48C10.7,48 0,37.3 0,24zM128,464a48,48 0,1 1,96 0,48 48,0 1,1 -96,0zM464,416a48,48 0,1 1,0 96,48 48,0 1,1 0,-96z"/>
 </vector>
