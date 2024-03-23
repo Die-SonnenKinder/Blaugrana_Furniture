@@ -1,7 +1,9 @@
 package com.example.blaugranafurniture.dialog
 
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
 import com.example.blaugranafurniture.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -15,6 +17,7 @@ fun Fragment.setupBottomSheetDialog(
     dialog.setContentView(view)
     dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
     dialog.show()
+
 
 
     val edEmail = view.findViewById<EditText>(R.id.edResetPassword)
