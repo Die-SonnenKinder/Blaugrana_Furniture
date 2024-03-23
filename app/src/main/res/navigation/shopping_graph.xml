@@ -3,13 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_graph"
-    app:startDestination="@id/userAccountFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.SearchFragment"
@@ -24,11 +35,23 @@
         android:id="@+id/profileFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.ProfileFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_userAccountFragment"
+            app:destination="@id/userAccountFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top" />
+    </fragment>
     <fragment
         android:id="@+id/userAccountFragment"
         android:name="com.example.blaugranafurniture.fragments.settings.UserAccountFragment"
         android:label="UserAccountFragment"
-        tools:layout="@layout/fragment_user_account"/>
+        tools:layout="@layout/fragment_user_account">
+        <action
+            android:id="@+id/action_userAccountFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
+    </fragment>
 
 </navigation>
