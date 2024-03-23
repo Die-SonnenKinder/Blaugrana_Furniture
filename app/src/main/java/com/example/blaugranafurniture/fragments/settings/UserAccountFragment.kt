@@ -16,6 +16,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.User
 import com.example.blaugranafurniture.databinding.FragmentUserAccountBinding
 import com.example.blaugranafurniture.dialog.setupBottomSheetDialog
@@ -95,6 +96,10 @@ class UserAccountFragment : Fragment() {
             setupBottomSheetDialog {
 
             }
+        }
+
+        binding.imageCloseUserAccount.setOnClickListener {
+           findNavController().navigate(R.id.action_userAccountFragment_to_profileFragment)
         }
 
         binding.buttonSave.setOnClickListener {
