@@ -310,6 +310,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:buttonTint="#4cd964"
+                        app:thumbTint="@color/g_blue"
+
                         android:checked="true"
                         />
 
