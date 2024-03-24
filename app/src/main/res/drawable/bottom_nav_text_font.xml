@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/font/bottom_nav_text_font.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Font family khi item được chọn -->
+    <item android:fontFamily="@font/fcbarcelona_primary" android:state_checked="true"/>
+    <!-- Font family khi item không được chọn -->
+    <item android:fontFamily="@font/fcbarcelona21"/>
+</selector>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -25,17 +26,30 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/fcbarcelona_thin"
+                android:fontFamily="@font/fcbarcelona_primary"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:singleLine="true"
                 android:text="Search Now"
                 android:textColor="#919394"
-                android:textSize="15sp"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/ic_search"
+                android:tint="#919394"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="UseAppTint" />
         </androidx.constraintlayout.widget.ConstraintLayout>
         <View
             android:layout_width="10dp"
@@ -46,7 +60,7 @@
             android:src="@drawable/ic_scan"
             android:background="@drawable/icon_background"
             android:backgroundTint="@color/g_search_and_icons"
-            android:padding="10dp" />
+            android:padding="8dp" />
         <View
             android:layout_width="10dp"
             android:layout_height="match_parent"/>
@@ -56,22 +70,22 @@
             android:src="@drawable/ic_microphone"
             android:background="@drawable/icon_background"
             android:backgroundTint="@color/g_search_and_icons"
-            android:padding="10dp"/>
+            android:padding="8dp"/>
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabIndicator="@null"
         app:tabRippleColor="@color/white"
-        app:tabSelectedTextColor="@color/black"
+        app:tabSelectedTextColor="@color/g_blue"
         app:tabMode="scrollable"
         app:tabTextAppearance="@style/tabLayout_text"
         app:layout_constraintTop_toBottomOf="@id/homeHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="5dp" />
+        app:tabIndicator="@drawable/underline"
+        android:layout_marginTop="5dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpagerHome"
@@ -80,6 +94,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tabLayout"
-        app:layout_constraintBottom_toBottom0f="parent"/>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

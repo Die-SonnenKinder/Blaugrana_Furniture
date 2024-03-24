@@ -16,7 +16,9 @@
         <activity
             android:name=".activities.LoginRegisterActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light">
+            android:theme="@style/Theme.AppCompat.Light"
+            >
+
 
         </activity>
         <activity android:name=".activities.ShoppingActivity"
@@ -28,6 +30,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
 
 
         </activity>
