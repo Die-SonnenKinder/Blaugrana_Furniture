@@ -9,8 +9,8 @@ import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.adapters.HomeviewpagerAdapter
 import com.example.blaugranafurniture.databinding.FragmentHomeBinding
 import com.example.blaugranafurniture.fragments.category.AccessoryFragment
+import com.example.blaugranafurniture.fragments.category.BathroomFragment
 import com.example.blaugranafurniture.fragments.category.ChairFragment
-import com.example.blaugranafurniture.fragments.category.ClothesFragment
 import com.example.blaugranafurniture.fragments.category.CupboardFragment
 import com.example.blaugranafurniture.fragments.category.FurnitureFragment
 import com.example.blaugranafurniture.fragments.category.MainCategoryFragment
@@ -32,13 +32,13 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         val categoriesFragments = arrayListOf<Fragment> (
-            MainCategoryFragment<Any, Any?>(),
+            MainCategoryFragment(),
             ChairFragment(),
             CupboardFragment(),
             TableFragment(),
             AccessoryFragment(),
             FurnitureFragment(),
-            ClothesFragment(),
+            BathroomFragment(),
         )
 
         val viewPager2Adapter = HomeviewpagerAdapter(categoriesFragments,childFragmentManager,lifecycle)
@@ -51,7 +51,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
                 3 -> tab.text ="Table"
                 4 -> tab.text ="Accessories"
                 5 -> tab.text ="Furniture"
-                6 -> tab.text ="Clothes"
+                6 -> tab.text ="Bathroom"
             }
         }.attach()
     }

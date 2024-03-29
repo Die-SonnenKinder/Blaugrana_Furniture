@@ -1,6 +1,7 @@
 package com.example.blaugranafurniture.data
 
 data class Product (
+    val id: String,
     val name: String,
     val category: String,
     val price: Float,
@@ -10,5 +11,5 @@ data class Product (
     val sizes: List<String>? = null,
     val images: List<String>
 ) {
-    constructor():this("0","",0f,images = emptyList())
+    constructor():this("0","", "",0f, images = emptyList())
 }

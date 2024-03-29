@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class MainCategoryViewModel @Inject constructor(
@@ -23,19 +24,21 @@ class MainCategoryViewModel @Inject constructor(
         fetchSpecialProducts()
     }
 
-    private fun fetchSpecialProducts() {
+    fun fetchSpecialProducts() {
         viewModelScope.launch {
-            _specialProducts.value = Resource.Loading()
-            firestore.collection("Products")
-                .whereEqualTo("category","Special Products")
-                .get()
-                .addOnSuccessListener { result ->
-                    val specialProductList = result.toObjects(Product::class.java)
-                    _specialProducts.value = Resource.Success(specialProductList)
-                }
-                .addOnFailureListener { exception ->
-                    _specialProducts.value = Resource.Error(exception.message.toString())
-                }
+            _specialProducts.emit(Resource.Loading())
         }
+        firestore.collection("products")
+            .whereEqualTo("category", "Special Products").get().addOnSuccessListener { result ->
+                val specialProductsList = result.toObjects(Product::class.java)
+
+                viewModelScope.launch {
+                    _specialProducts.emit(Resource.Success(specialProductsList))
+                }
+            }.addOnFailureListener {
+                viewModelScope.launch {
+                    _specialProducts.emit(Resource.Error(it.message.toString()))
+                }
+            }
     }
 }
