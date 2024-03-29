@@ -16,10 +16,11 @@ import kotlinx.coroutines.flow.collectLatest
 import com.example.blaugranafurniture.util.Resource
 import android.widget.Toast
 import android.util.Log
+import com.example.blaugranafurniture.R
 
 private val TAG = "MainCategoryFragment"
 @AndroidEntryPoint
-class MainCategoryFragment : Fragment() {
+class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var specialProductsAdapter: SpecialProductsAdapter
     private val viewModel by viewModels<MainCategoryViewModel>()

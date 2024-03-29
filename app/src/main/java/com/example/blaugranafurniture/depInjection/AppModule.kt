@@ -1,5 +1,6 @@
 package com.example.blaugranafurniture.depInjection
 
+import android.app.Application
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
