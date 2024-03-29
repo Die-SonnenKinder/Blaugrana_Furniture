@@ -32,7 +32,7 @@ class HomeFragment: Fragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
 
         val categoriesFragments = arrayListOf<Fragment> (
-            MainCategoryFragment(),
+            MainCategoryFragment<Any, Any?>(),
             ChairFragment(),
             CupboardFragment(),
             TableFragment(),
