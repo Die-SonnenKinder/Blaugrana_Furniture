@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.adapters.BestDealsAdapter
-import com.example.blaugranafurniture.adapters.BestProductAdapter
+import com.example.blaugranafurniture.adapters.BestProductsAdapter
 import com.example.blaugranafurniture.adapters.SpecialProductsAdapter
 import com.example.blaugranafurniture.databinding.FragmentMainCategoryBinding
 import com.example.blaugranafurniture.util.Resource
@@ -27,7 +27,7 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     private lateinit var binding: FragmentMainCategoryBinding
     private lateinit var specialProductsAdapter: SpecialProductsAdapter
     private lateinit var bestDealsAdapter: BestDealsAdapter
-    private lateinit var bestProductsAdapter: BestProductAdapter
+    private lateinit var bestProductsAdapter: BestProductsAdapter
     private val viewModel by viewModels<MainCategoryViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -106,7 +106,7 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
     }
 
     private fun setupBestProductsRv() {
-        bestProductsAdapter = BestProductAdapter()
+        bestProductsAdapter = BestProductsAdapter()
         binding.rvBestProducts.apply {
             layoutManager = GridLayoutManager(requireContext(),2,GridLayoutManager.VERTICAL,false)
             adapter = bestProductsAdapter
