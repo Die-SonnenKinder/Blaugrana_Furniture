@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/blaugrana_gradient"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
     <LinearLayout
         android:id="@+id/homeHeader"
         android:layout_width="match_parent"
@@ -23,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/search_box_background">
+
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -35,9 +45,9 @@
                 android:textColor="#919394"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="18dp"
@@ -46,55 +56,67 @@
                 android:src="@drawable/ic_search"
                 android:tint="#919394"
 
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="UseAppTint" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <View
             android:layout_width="10dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
         <ImageView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_scan"
             android:background="@drawable/icon_background"
             android:backgroundTint="@color/g_search_and_icons"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:src="@drawable/ic_scan" />
+
         <View
             android:layout_width="10dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
         <ImageView
             android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_microphone"
             android:background="@drawable/icon_background"
             android:backgroundTint="@color/g_search_and_icons"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:src="@drawable/ic_microphone" />
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tabRippleColor="@color/white"
-        app:tabSelectedTextColor="@color/g_blue"
-        app:tabMode="scrollable"
-        app:tabTextAppearance="@style/tabLayout_text"
-        app:layout_constraintTop_toBottomOf="@id/homeHeader"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/homeHeader"
         app:tabIndicator="@drawable/underline"
-        android:layout_marginTop="5dp"/>
+        app:tabIndicatorColor="@color/g_yellow"
+        app:tabMode="scrollable"
+        app:tabRippleColor="@color/white"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/g_yellow"
+        app:tabTextAppearance="@style/tabLayout_text" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpagerHome"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEllipseRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

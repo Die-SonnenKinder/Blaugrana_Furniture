@@ -12,12 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:navGraph="@navigation/shopping_graph"
-        />
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/shopping_graph" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigation"
@@ -29,14 +28,16 @@
         app:itemPaddingBottom="10dp"
         app:itemPaddingTop="12dp"
         app:itemRippleColor="@color/g_white"
-        app:itemTextColor="@color/g_blue"
         app:itemTextAppearanceActive="@style/BottomNavigationTextStyle"
         app:itemTextAppearanceInactive="@style/BottomNavigationTextStyle"
+        app:itemTextColor="@color/g_blue"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_navigation_menu"/>
+        app:menu="@menu/bottom_navigation_menu" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
