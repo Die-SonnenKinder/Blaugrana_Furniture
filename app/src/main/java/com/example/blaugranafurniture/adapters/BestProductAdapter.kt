@@ -18,6 +18,7 @@ class BestProductsAdapter: RecyclerView.Adapter<BestProductsAdapter.BestProducts
         fun bind(product: Product) {
             binding.apply {
                 product.offerPercentage?.let {
+
                     val offerPercentageDecimal = it / 100.0
                     val priceAfterOffer = product.price - (product.price * offerPercentageDecimal)
 
@@ -26,6 +27,7 @@ class BestProductsAdapter: RecyclerView.Adapter<BestProductsAdapter.BestProducts
                 }
                 if(product.offerPercentage == null)
                     tvNewPrice.visibility = View.INVISIBLE
+
 
                 Glide.with(itemView).load(product.images[0]).into(imgProduct)
                 tvPrice.text = "$ ${product.price}"
@@ -51,7 +53,9 @@ class BestProductsAdapter: RecyclerView.Adapter<BestProductsAdapter.BestProducts
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestProductsViewHolder {
         return BestProductsViewHolder(
             ProductRvItemBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
         )
     }

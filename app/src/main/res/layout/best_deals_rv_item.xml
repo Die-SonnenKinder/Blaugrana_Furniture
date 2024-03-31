@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/g_card_background"
     android:elevation="0dp"
+    android:layout_marginRight="8dp"
+    app:cardCornerRadius="8dp"
+
     >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/border_gradient"
+        android:padding="8dp"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="88dp">
+        android:layout_height="88dp"
+        android:paddingRight="24dp"
+
+        >
 
         <ImageView
             android:id="@+id/img_best_deal"
@@ -20,16 +33,19 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp" />
 
+
         <TextView
             android:id="@+id/tv_deal_product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="12dp"
+
+
             android:fontFamily="@font/fcbarcelona_primary"
             android:text="Scotch Premium"
             android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/img_best_deal"
             app:layout_constraintTop_toTopOf="@id/img_best_deal" />
@@ -38,33 +54,40 @@
             android:id="@+id/tv_old_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$2000"
+            android:text="$1600"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@id/tv_deal_product_name"
             app:layout_constraintTop_toBottomOf="@id/tv_deal_product_name"
-            app:layout_constraintStart_toEndOf="@id/tv_new_price"
             android:textColor="@color/g_gray700"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:fontFamily="@font/fcbarcelona_primary"
-            android:layout_marginStart="8dp"
 
             />
-
         <TextView
             android:id="@+id/tv_new_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$1600"
-            app:layout_constraintStart_toStartOf="@id/tv_deal_product_name"
+            android:text="$2000"
+            android:textStyle="bold"
+            android:background="@color/g_yellow"
             app:layout_constraintTop_toBottomOf="@id/tv_deal_product_name"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/fcbarcelona_primary"/>
+            app:layout_constraintStart_toEndOf="@id/tv_old_price"
+            android:textColor="@color/g_black"
+            android:textSize="20sp"
+            android:fontFamily="@font/fcbarcelona_primary"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+
+            />
+
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
             android:id="@+id/btn_see_product"
             android:layout_width="83dp"
             android:layout_height="28dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/gradient_background"
             android:fontFamily="@font/fcbarcelona_primary"
             android:gravity="center"
@@ -72,7 +95,7 @@
 
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="12dp"
+            android:textSize="14dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.697"

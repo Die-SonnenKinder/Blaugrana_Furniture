@@ -1,6 +1,7 @@
 package com.example.blaugranafurniture.adapters
 
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -15,13 +16,13 @@ class BestDealsAdapter: RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHolde
         fun bind(product: Product) {
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imgBestDeal)
-                if (product.offerPercentage != null) {
-                    val offerPercentageDecimal = product.offerPercentage / 100.0
+                product.offerPercentage?.let {
+                    val offerPercentageDecimal = it / 100.0
                     val priceAfterOffer = product.price - (product.price * offerPercentageDecimal)
-                    tvOldPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
-                } else {
-                    tvOldPrice.text = "$ ${product.price}"
+                    tvNewPrice.text = "$ ${String.format("%.2f",priceAfterOffer)}"
+                    tvOldPrice.paintFlags = tvOldPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
                 }
+                tvOldPrice.text = "$ ${product.price}"
                 tvDealProductName.text = product.name
             }
         }
@@ -39,7 +40,9 @@ class BestDealsAdapter: RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHolde
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestDealsViewHolder {
         return BestDealsViewHolder(
             BestDealsRvItemBinding.inflate(
-                LayoutInflater.from(parent.context)
+                LayoutInflater.from(parent.context),
+                parent,
+                false
             )
         )
     }
