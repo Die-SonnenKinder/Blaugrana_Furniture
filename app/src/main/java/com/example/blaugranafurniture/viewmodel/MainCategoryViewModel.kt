@@ -25,6 +25,8 @@ class MainCategoryViewModel @Inject constructor(
     private val _bestProducts = MutableStateFlow<Resource<List<Product>>>(Resource.Unspecified())
     val bestProducts: StateFlow<Resource<List<Product>>> = _bestProducts
 
+    private val pagingInfo = PagingInfo()
+
     init {
         fetchSpecialProducts()
         fetchBestDeals()
@@ -68,19 +70,30 @@ class MainCategoryViewModel @Inject constructor(
     }
 
     fun fetchBestProducts () {
-        viewModelScope.launch {
-            _bestProducts.emit(Resource.Loading())
-        }
-        firestore.collection("products").get()
-            .addOnSuccessListener { result ->
-                val bestProducts = result.toObjects(Product::class.java)
-                viewModelScope.launch {
-                    _bestProducts.emit(Resource.Success(bestProducts))
-                }
-            }.addOnFailureListener {
-                viewModelScope.launch {
-                    _bestProducts.emit(Resource.Error(it.message.toString()))
-                }
+        if(!pagingInfo.isPagingEnd){
+            viewModelScope.launch {
+                _bestProducts.emit(Resource.Loading())
             }
+            firestore.collection("products").whereEqualTo("category","Chair").limit(pagingInfo.bestProductsPage * 10).get()
+                .addOnSuccessListener { result ->
+                    val bestProducts = result.toObjects(Product::class.java)
+                    pagingInfo.isPagingEnd = bestProducts == pagingInfo.oldBestProduct
+                    pagingInfo.oldBestProduct = bestProducts
+                    viewModelScope.launch {
+                        _bestProducts.emit(Resource.Success(bestProducts))
+                    }
+                    pagingInfo.bestProductsPage++
+                }.addOnFailureListener {
+                    viewModelScope.launch {
+                        _bestProducts.emit(Resource.Error(it.message.toString()))
+                    }
+                }
+        }
     }
 }
+
+internal data class PagingInfo (
+    var bestProductsPage: Long = 1,
+    var oldBestProduct: List<Product> = emptyList(),
+    var isPagingEnd: Boolean = false
+)
