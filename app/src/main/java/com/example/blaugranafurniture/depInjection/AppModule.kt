@@ -1,6 +1,8 @@
 package com.example.blaugranafurniture.depInjection
 
 import android.app.Application
+import android.content.Context.MODE_PRIVATE
+import com.example.blaugranafurniture.util.Constants.INTRODUCTION_SP
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.firestore
@@ -23,7 +25,9 @@ object AppModule {
     @Singleton
     fun provideFirebaseFirestoreDatabase() = Firebase.firestore
 
-
+    @Provides
+    @Singleton
+    fun provideIntroductionSP(application: Application) = application.getSharedPreferences(INTRODUCTION_SP, MODE_PRIVATE)
 
 
     @Provides
