@@ -22,20 +22,16 @@ class IntroductionViewModel @Inject constructor(
 
     companion object {
         const val SHOPPING_ACTIVITY = 23
-        val ACCOUNT_OPTIONS_FRAGMENT by lazy { R.id.action_introductionFragment_to_accountOptionsFragment }
+        val ACCOUNT_OPTIONS_FRAGMENT = R.id.action_introductionFragment_to_accountOptionsFragment
 
     }
     init {
-        val isButtonClicked = sharedPreferences.getBoolean(INTRODUCTION_KEY, false)
+
         val user = firebaseAuth.currentUser
 
         if (user != null) {
             viewModelScope.launch {
                 _navigate.emit(SHOPPING_ACTIVITY)
-            }
-        } else if (isButtonClicked) {
-            viewModelScope.launch {
-                _navigate.emit(ACCOUNT_OPTIONS_FRAGMENT)
             }
         } else {
             Unit

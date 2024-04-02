@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="8dp"
+    android:layout_marginLeft="4dp"
     android:layout_marginBottom="8dp"
     app:cardCornerRadius="8dp"
 
@@ -26,11 +26,21 @@
         android:paddingVertical="8dp"
         >
 
+
         <ImageView
-            android:id="@+id/img_product"
+            android:id="@+id/img_frame"
             android:layout_width="144dp"
             android:layout_height="144dp"
+            android:src="@drawable/border_gradient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/img_product"
+            android:layout_width="136dp"
+            android:layout_height="136dp"
             android:scaleType="centerCrop"
+            android:layout_marginTop="4dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,11 +52,9 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/yellow_background"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/img_product"
-            app:layout_constraintTop_toTopOf="@id/img_product"
-
+            app:layout_constraintEnd_toEndOf="@id/img_frame"
+            app:layout_constraintTop_toTopOf="@id/img_frame"
             >
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
@@ -63,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@id/img_product"
-            app:layout_constraintStart_toStartOf="@id/img_product"
-            app:layout_constraintTop_toBottomOf="@id/img_product">
+            app:layout_constraintEnd_toEndOf="@id/img_frame"
+            app:layout_constraintStart_toStartOf="@id/img_frame"
+            app:layout_constraintTop_toBottomOf="@id/img_frame">
 
             <TextView
                 android:id="@+id/tv_name"
@@ -94,7 +102,7 @@
             android:textStyle="bold"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/img_product"
+            app:layout_constraintStart_toStartOf="@id/img_frame"
             app:layout_constraintTop_toBottomOf="@id/linear_product_name" />
 
         <TextView

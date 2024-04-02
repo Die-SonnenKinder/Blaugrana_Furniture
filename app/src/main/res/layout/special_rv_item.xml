@@ -4,6 +4,7 @@
     android:layout_width="280dp"
     android:layout_height="wrap_content"
     android:layout_marginRight="8dp"
+    android:layout_marginLeft="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="0dp"
     app:cardCornerRadius="8dp"
@@ -23,20 +24,30 @@
         >
 
         <ImageView
-            android:id="@+id/imageSpecialRvItem"
+            android:id="@+id/imageSpecialFrame"
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
+            android:src="@drawable/border_gradient"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageSpecialRvItem"
+            android:layout_width="84dp"
+            android:layout_height="82dp"
+            android:scaleType="centerCrop"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvSpecialProductName"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="4dp"
             android:fontFamily="@font/fcbarcelona_primary"
             android:maxLines="2"
             android:text="Scotch Premium"

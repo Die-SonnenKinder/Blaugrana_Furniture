@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:elevation="0dp"
     android:layout_marginRight="8dp"
+    android:layout_marginLeft="4dp"
     app:cardCornerRadius="8dp"
 
     >
@@ -25,21 +26,34 @@
         >
 
         <ImageView
-            android:id="@+id/img_best_deal"
+            android:id="@+id/img_best_deal_frame"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:src="@drawable/border_gradient"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+
+            />
+        <ImageView
+            android:id="@+id/img_best_deal"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/blaugrana_wallpaper"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="16dp" />
 
 
         <TextView
             android:id="@+id/tv_deal_product_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
 
 
             android:fontFamily="@font/fcbarcelona_primary"

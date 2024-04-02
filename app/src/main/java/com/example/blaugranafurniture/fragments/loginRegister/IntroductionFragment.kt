@@ -30,7 +30,7 @@ class IntroductionFragment: Fragment(R.layout.fragment_introduction) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentIntroductionBinding.inflate(inflater)
         return binding.root
     }
