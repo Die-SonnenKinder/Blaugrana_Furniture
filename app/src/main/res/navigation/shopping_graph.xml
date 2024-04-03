@@ -20,6 +20,9 @@
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment"
             app:popExitAnim="@anim/to_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_productsDetailsFragment"
+            app:destination="@id/productsDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -53,5 +56,9 @@
             app:enterAnim="@anim/from_top"
             app:exitAnim="@anim/to_bottom" />
     </fragment>
+    <fragment
+        android:id="@+id/productsDetailsFragment"
+        android:name="com.example.blaugranafurniture.fragments.shopping.ProductsDetailsFragment"
+        android:label="ProductsDetailsFragment" />
 
 </navigation>
