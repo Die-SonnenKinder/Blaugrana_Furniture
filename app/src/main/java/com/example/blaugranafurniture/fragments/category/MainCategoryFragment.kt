@@ -54,6 +54,8 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
                     is Resource.Success -> {
                         specialProductsAdapter.differ.submitList (it.data)
                         hideLoading()
+                        binding.tvSpecialProducts.visibility = View.VISIBLE
+
                     }
                     is Resource.Error -> {
                         hideLoading()
@@ -74,6 +76,7 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
                     is Resource.Success -> {
                         bestDealsAdapter.differ.submitList (it.data)
                         hideLoading()
+                        binding.tvBestDeals.visibility = View.VISIBLE
                     }
                     is Resource.Error -> {
                         hideLoading()
@@ -94,6 +97,7 @@ class MainCategoryFragment: Fragment(R.layout.fragment_main_category) {
                     is Resource.Success -> {
                         bestProductsAdapter.differ.submitList (it.data)
                         binding.bestProductsProgressbar.visibility = View.GONE
+                        binding.tvBestProducts.visibility = View.VISIBLE
                     }
                     is Resource.Error -> {
                         binding.bestProductsProgressbar.visibility = View.GONE

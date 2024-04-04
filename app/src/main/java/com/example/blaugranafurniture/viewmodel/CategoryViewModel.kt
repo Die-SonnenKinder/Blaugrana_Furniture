@@ -34,9 +34,12 @@ class CategoryViewModel constructor(
             .whereNotEqualTo("offerPercentage",null).get()
             .addOnSuccessListener {
                 val products = it.toObjects(Product::class.java)
+
                 viewModelScope.launch {
-                    _offerProducts.emit(Resource.Success(products))
+                    _bestProducts.emit(Resource.Success(products))
+
                 }
+
             }.addOnFailureListener {
                 viewModelScope.launch {
                     _offerProducts.emit(Resource.Error(it.message.toString()))
@@ -47,7 +50,7 @@ class CategoryViewModel constructor(
         viewModelScope.launch {
             _bestProducts.emit(Resource.Loading())
         }
-        firestore.collection("products").whereEqualTo("category",category.category)
+        firestore.collection("products").whereEqualTo("category", category.category)
             .whereEqualTo("offerPercentage",null).get()
             .addOnSuccessListener {
                 val products = it.toObjects(Product::class.java)
