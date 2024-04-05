@@ -19,12 +19,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:visibility="gone"/>
 
+        <TextView
+            android:id="@+id/tvBestDeals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/fcbarcelona21"
+            android:text="Best Deals"
+            android:textColor="@color/g_yellow"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvOffer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBestDeals"
             android:layout_marginTop="12dp"
             android:layout_marginStart="16dp"/>
 

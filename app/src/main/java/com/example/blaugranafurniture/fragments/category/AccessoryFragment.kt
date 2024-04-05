@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.Category
 import com.example.blaugranafurniture.util.Resource
 import com.example.blaugranafurniture.viewmodel.CategoryViewModel
@@ -34,6 +35,7 @@ class AccessoryFragment: BaseCategoryFragment() {
                     is Resource.Success -> {
                         offerAdapter.differ.submitList(it.data)
                         hideOfferLoading()
+
                     }
                     is Resource.Error -> {
                         Snackbar.make(requireView(), it.message.toString(), Snackbar.LENGTH_LONG)
@@ -54,6 +56,7 @@ class AccessoryFragment: BaseCategoryFragment() {
                     is Resource.Success -> {
                         bestProductsAdapter.differ.submitList(it.data)
                         hideOfferLoading()
+
                     }
                     is Resource.Error -> {
                         Snackbar.make(requireView(), it.message.toString(), Snackbar.LENGTH_LONG)

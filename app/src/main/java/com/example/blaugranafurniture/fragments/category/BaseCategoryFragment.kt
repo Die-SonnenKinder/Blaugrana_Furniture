@@ -15,7 +15,7 @@ import com.example.blaugranafurniture.databinding.FragmentBaseCategoryBinding
 
 open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
 
-    private lateinit var binding: FragmentBaseCategoryBinding
+    lateinit var binding: FragmentBaseCategoryBinding
     protected val offerAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
     protected val bestProductsAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
 
@@ -48,6 +48,8 @@ open class BaseCategoryFragment: Fragment(R.layout.fragment_base_category) {
                 onBestProductPagingRequest()
             }
         })
+
+
     }
     fun showOfferLoading(){binding.offerProductsProgressbar.visibility = View.VISIBLE}
     fun hideOfferLoading(){binding.offerProductsProgressbar.visibility = View.GONE}

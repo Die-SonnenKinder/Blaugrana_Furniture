@@ -43,6 +43,8 @@ class MainCategoryViewModel @Inject constructor(
 
                 viewModelScope.launch {
                     _specialProducts.emit(Resource.Success(specialProductsList))
+
+
                 }
             }.addOnFailureListener {
                 viewModelScope.launch {
