@@ -73,6 +73,7 @@
     <fragment
         android:id="@+id/productsDetailsFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.ProductsDetailsFragment"
-        android:label="ProductsDetailsFragment" />
+        android:label="ProductsDetailsFragment"
+        tools:layout="@layout/fragment_product_details"/>
 
 </navigation>
