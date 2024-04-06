@@ -16,6 +16,7 @@ class SizesAdapter: RecyclerView.Adapter<SizesAdapter.SizesViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         fun bind(size: String, position: Int) {
             binding.tvSize.text = size
+
             if (position == selectedPosition) { //Size is selected
                 binding.apply {
                     imageShadow.visibility = View.VISIBLE

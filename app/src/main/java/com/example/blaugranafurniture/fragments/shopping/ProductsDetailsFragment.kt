@@ -1,10 +1,13 @@
 package com.example.blaugranafurniture.fragments.shopping
 
+import android.graphics.Paint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,9 +54,19 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
             tvProductName.text = product.name
             tvProductPrice.text = "$ ${product.price}"
             tvProductDescription.text = product.description
+            product.offerPercentage?.let {
+                val offerPercentageDecimal = it / 100.0
+                val priceAfterOffer = product.price - (product.price * offerPercentageDecimal)
+                tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
+                tvProductPrice.paintFlags = tvNewPrice.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+            }
+
+            if(product.offerPercentage == null)
+                tvNewPrice.visibility = View.INVISIBLE
 
             if(product.colors.isNullOrEmpty())
                 tvProductColors.visibility = View.INVISIBLE
+
             if(product.sizes.isNullOrEmpty())
                 tvProductSize.visibility = View.INVISIBLE
         }
@@ -65,19 +78,23 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
 
     private fun setupViewPager(){
         binding.apply {
-            viewPagerProductImages.adapter =viewPagerAdapter
+            viewPagerProductImages.adapter = viewPagerAdapter
         }
     }
     private fun setupColorRv(){
-        binding.rvcolors.apply {
+        binding.rvColors.apply {
             adapter = colorsAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
         }
     }
     private fun setupSizeRv(){
-        binding.rvSize.apply {
+        binding.rvSizes.apply {
             adapter = sizesAdapter
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+
         }
     }
+
+
 }

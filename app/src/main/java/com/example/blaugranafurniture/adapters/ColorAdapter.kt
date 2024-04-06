@@ -18,6 +18,8 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.ColorsViewHolder>() {
         fun bind(color: Int, position: Int) {
             val imageDrawable = ColorDrawable(color)
             binding.imageColor.setImageDrawable(imageDrawable)
+
+
             if (position == selectedPosition) { //Color is selected
                 binding.apply {
                     imageShadow.visibility = View.VISIBLE
