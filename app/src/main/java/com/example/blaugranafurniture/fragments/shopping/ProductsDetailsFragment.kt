@@ -5,27 +5,35 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.unit.dp
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavArgs
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.blaugranafurniture.R
-import com.example.blaugranafurniture.activities.ShoppingActivity
-import com.example.blaugranafurniture.adapters.ViewPager2Images
-import com.example.blaugranafurniture.adapters.SizesAdapter
 import com.example.blaugranafurniture.adapters.ColorsAdapter
+import com.example.blaugranafurniture.adapters.SizesAdapter
+import com.example.blaugranafurniture.adapters.ViewPager2Images
+import com.example.blaugranafurniture.data.CartProduct
 import com.example.blaugranafurniture.databinding.FragmentProductDetailsBinding
+import com.example.blaugranafurniture.util.Resource
 import com.example.blaugranafurniture.util.hideBottomNavigationView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.blaugranafurniture.viewmodel.DetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
+@AndroidEntryPoint
 class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
     private val args by navArgs<ProductsDetailsFragmentArgs>()
     private lateinit var binding: FragmentProductDetailsBinding
     private val viewPagerAdapter by lazy { ViewPager2Images() }
     private val sizesAdapter by lazy { SizesAdapter() }
     private val colorsAdapter by lazy { ColorsAdapter() }
+    private var selectedColors: Int? =null
+    private var selectedSize: String? =null
+    private val viewModel by viewModels<DetailViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,6 +56,32 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
 
         binding.imageClose.setOnClickListener{
             findNavController().navigateUp()
+        }
+
+        sizesAdapter.onItemClick = {selectedSize=it}
+        colorsAdapter.onItemClick = {selectedColors=it}
+
+        binding.buttonAddToCart.setOnClickListener {
+            viewModel.addUpdateProductInCart(CartProduct(product,1,selectedColors,selectedSize))
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.addToCart.collectLatest {
+                when (it){
+                    is Resource.Loading -> {
+                        binding.buttonAddToCart.startAnimation()
+                    }
+                    is Resource.Success -> {
+                        binding.buttonAddToCart.revertAnimation()
+                        binding.buttonAddToCart.setBackgroundColor(resources.getColor(R.color.g_blue_gray200))
+                    }
+                    is Resource.Error -> {
+                        binding.buttonAddToCart.stopAnimation()
+                        Toast.makeText(requireContext(), it.message,Toast.LENGTH_SHORT).show()
+                    }
+                    else -> Unit
+                }
+            }
         }
 
         binding.apply {
