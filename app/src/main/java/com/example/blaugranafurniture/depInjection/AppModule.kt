@@ -2,9 +2,11 @@ package com.example.blaugranafurniture.depInjection
 
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
+import com.example.blaugranafurniture.firebase.FirebaseCommon
 import com.example.blaugranafurniture.util.Constants.INTRODUCTION_SP
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.google.firebase.storage.FirebaseStorage
 import dagger.Module
@@ -33,5 +35,12 @@ object AppModule {
     @Provides
     @Singleton
     fun provideStorage() = FirebaseStorage.getInstance().reference
+
+    @Provides
+    @Singleton
+    fun provideFirebasecommon(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    ) = FirebaseCommon(firestore,firebaseAuth)
 
 }
