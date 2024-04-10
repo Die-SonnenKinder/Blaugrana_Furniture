@@ -16,7 +16,7 @@
         <activity
             android:name=".activities.LoginRegisterActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light"
+            android:theme="@style/Theme.BlaugranaFurniture"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".activities.ShoppingActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light"
+            android:theme="@style/Theme.BlaugranaFurniture"
             android:windowSoftInputMode="stateVisible|adjustPan"
             >
 

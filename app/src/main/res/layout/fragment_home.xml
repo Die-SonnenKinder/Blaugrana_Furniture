@@ -95,6 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/homeHeader"
+        android:background="@android:color/transparent"
         app:tabIndicator="@drawable/underline"
         app:tabIndicatorColor="@color/g_yellow"
         app:tabMode="scrollable"

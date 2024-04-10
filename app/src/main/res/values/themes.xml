@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.BlaugranaFurniture" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.BlaugranaFurniture" parent="Theme.MaterialComponents.Light"/>
     <!-- Primary brand color. -->
     <item name="colorPrimary" type="color">@color/purple_500</item>
     <item name="colorPrimaryVariant" type="color">@color/purple_700</item>
