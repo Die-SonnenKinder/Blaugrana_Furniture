@@ -40,6 +40,9 @@
         <action
             android:id="@+id/action_cartFragment_to_productsDetailsFragment"
             app:destination="@id/productsDetailsFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -82,6 +85,9 @@
         <argument
             android:name="product"
             app:argType="com.example.blaugranafurniture.data.Product" />
+        <action
+            android:id="@+id/action_productsDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 
 </navigation>

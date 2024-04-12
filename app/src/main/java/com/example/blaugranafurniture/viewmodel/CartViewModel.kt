@@ -65,7 +65,7 @@ class CartViewModel @Inject constructor(
 
     private fun getCartProducts() {
         viewModelScope.launch { _cartProducts.emit(Resource.Loading()) }
-        firestore.collection("path").document(auth.uid!!).collection("cart")
+        firestore.collection("user").document(auth.uid!!).collection("cart")
             .addSnapshotListener { value, error ->
                 if (error != null || value == null) {
                     viewModelScope.launch { _cartProducts.emit(Resource.Error(error?.message.toString())) }

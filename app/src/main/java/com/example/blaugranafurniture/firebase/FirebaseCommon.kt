@@ -8,7 +8,7 @@ class FirebaseCommon (
     private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth,
 ) {
-    private val cartCollection = firestore.collection("path").document(auth.uid!!).collection("cart")
+    private val cartCollection = firestore.collection("user").document(auth.uid!!).collection("cart")
 
     fun addProductToCart(cartProduct: CartProduct, onResult: (CartProduct?,Exception?) -> Unit) {
         cartCollection.document().set(cartProduct)

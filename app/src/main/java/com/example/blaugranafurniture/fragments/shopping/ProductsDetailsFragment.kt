@@ -55,7 +55,9 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
         setupViewPager()
 
         binding.imageClose.setOnClickListener{
-            findNavController().navigateUp()
+
+                findNavController().navigate(R.id.action_productsDetailsFragment_to_homeFragment)
+
         }
 
         sizesAdapter.onItemClick = {selectedSize=it}
