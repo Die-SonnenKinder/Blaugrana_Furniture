@@ -36,7 +36,11 @@
         android:id="@+id/cartFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.CartFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_cart"/>
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cartFragment_to_productsDetailsFragment"
+            app:destination="@id/productsDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.ProfileFragment"
