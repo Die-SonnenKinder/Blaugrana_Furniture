@@ -17,84 +17,92 @@ import com.example.blaugranafurniture.adapters.CartProductAdapter
 import com.example.blaugranafurniture.databinding.FragmentCartBinding
 import com.example.blaugranafurniture.firebase.FirebaseCommon
 import com.example.blaugranafurniture.util.Resource
+import com.example.blaugranafurniture.util.VerticalItemDecroration
 import com.example.blaugranafurniture.viewmodel.CartViewModel
 import kotlinx.coroutines.flow.collectLatest
 
-class CartFragment: Fragment(R.layout.fragment_cart) {
+class CartFragment : Fragment(R.layout.fragment_cart) {
     private lateinit var binding: FragmentCartBinding
     private val cartAdapter by lazy { CartProductAdapter() }
-    private val viewModel by activityViewModels<CartViewModel> ()
+    private val viewModel by activityViewModels<CartViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCartBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        setUpCartRv()
+        binding.imageCloseCart.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_homeFragment)
+        }
+        setupCartRv()
 
         lifecycleScope.launchWhenStarted {
             viewModel.productsPrice.collectLatest { price ->
-                price?.let{
+                price?.let {
                     binding.tvTotalPrice.text = "$ $price"
                 }
             }
         }
 
-        cartAdapter.onProductClick ={
-            val b = Bundle().apply{putParcelable("product",it.product)}
-            findNavController().navigate(R.id.action_cartFragment_to_productsDetailsFragment,b)
+        cartAdapter.onProductClick = {
+            val b = Bundle().apply { putParcelable("product", it.product) }
+            findNavController().navigate(R.id.action_cartFragment_to_productsDetailsFragment, b)
         }
 
-        cartAdapter.onPlusClick ={
-            viewModel.changeQuantity(it,FirebaseCommon.QuantityChanging.INCREASE)
+        cartAdapter.onPlusClick = {
+            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.INCREASE)
         }
 
-        cartAdapter.onMinusClick ={
-            viewModel.changeQuantity(it,FirebaseCommon.QuantityChanging.DECREASE)
+        cartAdapter.onMinusClick = {
+            viewModel.changeQuantity(it, FirebaseCommon.QuantityChanging.DECREASE)
         }
+
+
 
         lifecycleScope.launchWhenStarted {
             viewModel.deleteDialog.collectLatest {
-                val alertDialog=AlertDialog.Builder(requireContext()).apply {
-                    setTitle("Delete this item from cart")
-                    setMessage("Do you want to remove this item from your cart?")
-                    setNegativeButton("Cancel") {dialog,_ -> dialog.dismiss()}
-                    setNegativeButton("Yes") {dialog,_ -> viewModel.deleteCartProduct(it)
-                        dialog.dismiss()}
+                val alertDialog = AlertDialog.Builder(requireContext()).apply {
+                    setTitle("Delete item from cart")
+                    setMessage("Do you want to delete this item from your cart?")
+                    setNegativeButton("Cancel") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    setPositiveButton("Yes") { dialog, _ ->
+                        viewModel.deleteCartProduct(it)
+                        dialog.dismiss()
+                    }
                 }
                 alertDialog.create()
                 alertDialog.show()
             }
-
         }
 
         lifecycleScope.launchWhenStarted {
             viewModel.cartProducts.collectLatest {
-                when(it){
+                when (it) {
                     is Resource.Loading -> {
-                        binding.progressbarCart.visibility=View.VISIBLE
+                        binding.progressbarCart.visibility = View.VISIBLE
                     }
                     is Resource.Success -> {
-                        binding.progressbarCart.visibility=View.INVISIBLE
-                        if (it.data!!.isEmpty()){
+                        binding.progressbarCart.visibility = View.INVISIBLE
+                        if (it.data!!.isEmpty()) {
                             showEmptyCart()
-                            hideOtherView()
+                            hideOtherViews()
                         } else {
                             hideEmptyCart()
-                            showOtherView()
+                            showOtherViews()
                             cartAdapter.differ.submitList(it.data)
                         }
                     }
                     is Resource.Error -> {
-                        binding.progressbarCart.visibility=View.INVISIBLE
-                        Toast.makeText(requireContext(), it.message,Toast.LENGTH_SHORT).show()
+                        binding.progressbarCart.visibility = View.INVISIBLE
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
                     }
                     else -> Unit
                 }
@@ -102,7 +110,7 @@ class CartFragment: Fragment(R.layout.fragment_cart) {
         }
     }
 
-    private fun hideOtherView(){
+    private fun showOtherViews() {
         binding.apply {
             rvCart.visibility = View.VISIBLE
             totalBoxContainer.visibility = View.VISIBLE
@@ -110,7 +118,7 @@ class CartFragment: Fragment(R.layout.fragment_cart) {
         }
     }
 
-    private fun showOtherView(){
+    private fun hideOtherViews() {
         binding.apply {
             rvCart.visibility = View.GONE
             totalBoxContainer.visibility = View.GONE
@@ -118,14 +126,23 @@ class CartFragment: Fragment(R.layout.fragment_cart) {
         }
     }
 
-    private fun hideEmptyCart(){}
+    private fun hideEmptyCart() {
+        binding.apply {
+            layoutCartEmpty.visibility = View.GONE
+        }
+    }
 
-    private fun showEmptyCart(){}
+    private fun showEmptyCart() {
+        binding.apply {
+            layoutCartEmpty.visibility = View.VISIBLE
+        }
+    }
 
-    private fun setUpCartRv(){
+    private fun setupCartRv() {
         binding.rvCart.apply {
-            layoutManager = LinearLayoutManager(requireContext(),RecyclerView.VERTICAL,false)
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = cartAdapter
+            addItemDecoration(VerticalItemDecroration())
         }
     }
 }
