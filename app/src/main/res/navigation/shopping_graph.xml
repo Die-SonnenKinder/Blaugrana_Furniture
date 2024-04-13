@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/addressFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -63,6 +63,9 @@
             app:exitAnim="@anim/to_right"
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
+        <action
+            android:id="@+id/action_profileFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
     </fragment>
     <fragment
         android:id="@+id/userAccountFragment"
@@ -89,5 +92,10 @@
             android:id="@+id/action_productsDetailsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.example.blaugranafurniture.fragments.shopping.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address"/>
 
 </navigation>
