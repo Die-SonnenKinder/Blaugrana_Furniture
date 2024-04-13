@@ -5,24 +5,26 @@ Blaugrana Furniture app targets people who are looking to buy high quality furni
 
 # Preview (Just change the design, will update soon)
 ### Start Screen
-![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/306e8935-6efc-44ba-b8ad-226e3ef51e27)
+![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/6a61af13-4974-4398-9c36-248f8979d281)
+
 
 
  ### Main Screen
-![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/48d508b4-823c-45f3-8ebb-0a65f37cbf23)
-![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/37ea236f-54c9-4491-bdba-5ab12753833f)
+![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/1c7400c3-7487-4b3d-84e3-2c8d9cda6422)
+![image](https://github.com/Die-SonnenKinder/Blaugrana_Furniture/assets/89086008/fd0d8ba1-2c79-4a20-93a1-f4111febcf93)
+
 
 
 
 
 # Libraries and technologies used
-- Navigation Component: one activity contains multiple fragments instead of creating multiple activites.
+- Navigation Component: One activity contains multiple fragments instead of creating multiple activites.
 - Firebase Auth: Manging Accounts/ Loging in and Registrations.
 - Firebase Firestore: Database for the system.
 - Firebase Storage: To store proucts images and user profile pictures.
 - MVVM & LiveData: Saperate logic code from views and save the state in case the screen configuration changes.
-- Coroutines: do some code in the background.
-- View Binding: instead of inflating views manually view binding will take care of that.
+- Coroutines: Do some code in the background.
+- View Binding: Instead of inflating views manually view binding will take care of that.
 - Glide: Catch images and load them in imageView.
 
 # Progress
