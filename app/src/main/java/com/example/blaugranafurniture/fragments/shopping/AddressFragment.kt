@@ -52,7 +52,7 @@ class AddressFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentAddressBinding.inflate(inflater)
         return binding.root
     }
@@ -64,11 +64,11 @@ class AddressFragment: Fragment() {
             buttonSave.setOnClickListener {
                 val addressTitle =  edAddressTitle.text.toString()
                 val fullName =  edFullName.text.toString()
+                val email =  edEmail.text.toString()
                 val phone =  edPhone.text.toString()
-                val street =  edStreet.text.toString()
                 val city =  edCity.text.toString()
-                val state =  edState.text.toString()
-                val address = Address(addressTitle,fullName,phone,street,city,state)
+                val zipCode =  edZipCode.text.toString()
+                val address = Address(addressTitle, fullName, email, phone, city, zipCode)
 
                 viewModel.addAddress(address)
             }

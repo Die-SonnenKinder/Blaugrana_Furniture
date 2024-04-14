@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.collectLatest
 class BillingFragment: Fragment() {
     private lateinit var binding: FragmentBillingBinding
     private val addressAdapter by lazy { AddressAdapter() }
-    private val billingProdctAdapter by lazy { BillingProductAdapter() }
+    private val billingProductsAdapter by lazy { BillingProductAdapter() }
     private val viewModel by viewModels<BillingViewModel>()
     private val args by navArgs<BillingFragmentArgs>()
     private var products = emptyList<CartProduct>()
@@ -39,27 +39,31 @@ class BillingFragment: Fragment() {
         products = args.product.toList()
         totalPrice = args.totalPrice
     }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         binding = FragmentBillingBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAddressRv()
-        setupBillingProductRv()
 
-        binding.imageAddAddress.setOnClickListener{
+        setupBillingProductsRv()
+        setupAddressRv()
+        binding.imageCloseBilling.setOnClickListener {
+            findNavController().navigate(R.id.action_billingFragment_to_cartFragment)
+        }
+        binding.imageAddAddress.setOnClickListener {
             findNavController().navigate(R.id.action_billingFragment_to_addressFragment)
         }
 
         lifecycleScope.launchWhenStarted {
             viewModel.address.collectLatest {
-                when (it){
+                when(it){
                     is Resource.Loading ->{
                         binding.progressbarAddress.visibility = View.VISIBLE
                     }
@@ -69,30 +73,31 @@ class BillingFragment: Fragment() {
                     }
                     is Resource.Error ->{
                         binding.progressbarAddress.visibility = View.GONE
-                        Toast.makeText(requireContext(),"Error $(it.message)", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Error ${it.message}", Toast.LENGTH_SHORT).show()
                     }
                     else -> Unit
                 }
             }
         }
+        billingProductsAdapter.differ.submitList(products)
 
-        billingProdctAdapter.differ.submitList(products)
         binding.tvTotalPrice.text = "$ $totalPrice"
     }
 
     private fun setupAddressRv() {
-        binding.rvProducts.apply {
-            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+        binding.rvAddress.apply {
+            layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
             adapter = addressAdapter
             addItemDecoration(HorizontalItemDecoration())
         }
     }
 
-    private fun setupBillingProductRv() {
+    private fun setupBillingProductsRv() {
         binding.rvProducts.apply {
-            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
-            adapter = billingProdctAdapter
+            layoutManager = LinearLayoutManager(requireContext(),RecyclerView.HORIZONTAL,false)
+            adapter = billingProductsAdapter
             addItemDecoration(HorizontalItemDecoration())
         }
     }
 }
+

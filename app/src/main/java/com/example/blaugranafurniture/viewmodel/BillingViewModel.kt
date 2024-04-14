@@ -16,7 +16,7 @@ import javax.inject.Inject
 class BillingViewModel @Inject constructor(
     private val firestore: FirebaseFirestore,
     private val auth: FirebaseAuth
-): ViewModel() {
+) : ViewModel() {
 
     private val _address = MutableStateFlow<Resource<List<Address>>>(Resource.Unspecified())
     val address = _address.asStateFlow()
@@ -26,15 +26,15 @@ class BillingViewModel @Inject constructor(
     }
 
     fun getUserAddresses() {
-        viewModelScope.launch { _address.emit(Resource.Loading())}
-                firestore.collection("user").document(auth.uid!!).collection("address")
-                    .addSnapshotListener { value, error ->
-                        if (error != null) {
-                            viewModelScope.launch { _address.emit(Resource.Error(error.message.toString()))}
-                            return@addSnapshotListener
-                        }
-                        val addresses = value?.toObjects(Address::class.java)
-                        viewModelScope.launch { _address.emit(Resource.Success(addresses!!)) }
-                    }
-        }
+        viewModelScope.launch { _address.emit(Resource.Loading()) }
+        firestore.collection("user").document(auth.uid!!).collection("address")
+            .addSnapshotListener { value, error ->
+                if (error != null) {
+                    viewModelScope.launch { _address.emit(Resource.Error(error.message.toString())) }
+                    return@addSnapshotListener
+                }
+                val addresses = value?.toObjects(Address::class.java)
+                viewModelScope.launch { _address.emit(Resource.Success(addresses!!)) }
+            }
     }
+}

@@ -53,7 +53,6 @@
                     android:fontFamily="@font/fcbarcelona_primary"
                     android:text="My Cart"
                     android:textColor="@color/white"
-                    android:textStyle="bold"
                     android:textSize="32sp"
                     app:layout_constraintBottom_toBottomOf="@id/imageCloseCart"
                     app:layout_constraintStart_toStartOf="@id/imageCloseCart"
