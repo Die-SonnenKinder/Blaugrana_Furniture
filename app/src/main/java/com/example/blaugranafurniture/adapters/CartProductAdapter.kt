@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.blaugranafurniture.data.CartProduct
-
 import com.example.blaugranafurniture.databinding.CartProductItemBinding
-
 import com.example.blaugranafurniture.helper.getProductPrice
 
 
@@ -22,7 +20,9 @@ class CartProductAdapter: RecyclerView.Adapter<CartProductAdapter.CartProductsVi
 
         fun bind(cartProduct: CartProduct) {
             binding.apply {
-                Glide.with(itemView).load(cartProduct.product.images[0]).into(imageCartProduct)
+                if (cartProduct.product.images.isNotEmpty()) {
+                    Glide.with(itemView).load(cartProduct.product.images[0]).into(imageCartProduct)
+                }
                 tvProductCartName.text = cartProduct.product.name
                 tvCartProductQuantity.text = cartProduct.quantity.toString()
 

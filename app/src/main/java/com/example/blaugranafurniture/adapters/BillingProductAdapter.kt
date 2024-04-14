@@ -1,23 +1,25 @@
 package com.example.blaugranafurniture.adapters
+import com.example.blaugranafurniture.data.CartProduct
+import com.example.blaugranafurniture.databinding.BillingProductsRvItemBinding
+import com.example.blaugranafurniture.helper.getProductPrice
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.blaugranafurniture.data.CartProduct
-import com.example.blaugranafurniture.databinding.BillingProductsRvItemBinding
-import com.example.blaugranafurniture.helper.getProductPrice
 
-class BillingProductAdapter: RecyclerView.Adapter<BillingProductAdapter.BillingProductViewHolder>() {
+
+class BillingProductAdapter: Adapter<BillingProductAdapter.BillingProductViewHolder>() {
     inner class BillingProductViewHolder (val binding: BillingProductsRvItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(billingProduct: CartProduct) {
             binding.apply {
                 Glide.with(itemView).load(billingProduct.product.images[0]).into(imageCartProduct)
-                tvProductCartName.text = billingProduct.quantity.toString()
+                tvProductCartName.text = billingProduct.product.name
                 tvBillingProductQuantity.text = billingProduct.quantity.toString()
 
                 val priceAfterPercentage = billingProduct.product.offerPercentage.getProductPrice(billingProduct.product.price)

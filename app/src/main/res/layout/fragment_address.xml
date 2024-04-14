@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
-        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
                 android:layout_marginStart="16dp"
                 android:fontFamily="@font/fcbarcelona_primary"
                 android:text="Address"
-                android:textSize="24sp"
+                android:textSize="32sp"
                 android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/imageAddressClose"
                 app:layout_constraintStart_toEndOf="@id/imageAddressClose"
@@ -63,7 +63,7 @@
         android:background="@drawable/white_background"
         android:fontFamily="@font/fcbarcelona_primary"
         android:gravity="start|center_vertical"
-        android:hint="Address location"
+        android:hint="Address"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:singleLine="true"
@@ -77,6 +77,7 @@
         android:id="@+id/edFullName"
         android:layout_width="0dp"
         android:layout_height="45dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/white_background"
         android:fontFamily="@font/fcbarcelona_primary"
         android:gravity="start|center_vertical"
@@ -88,17 +89,17 @@
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toStartOf="@id/guideline1"
         app:layout_constraintTop_toBottomOf="@+id/edAddressTitle"
-        android:layout_marginTop="15dp"/>
+        />
 
     <EditText
-        android:id="@+id/edStreet"
+        android:id="@+id/edEmail"
         android:layout_width="0dp"
         android:layout_height="45dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/white_background"
         android:fontFamily="@font/fcbarcelona_primary"
         android:gravity="start|center_vertical"
-        android:hint="Street"
+        android:hint="Email Address"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         android:singleLine="true"
@@ -134,13 +135,13 @@
             android:layout_marginEnd="5dp" />
 
         <EditText
-            android:id="@+id/edState"
+            android:id="@+id/edZipCode"
             android:layout_width="378dp"
             android:layout_height="45dp"
             android:background="@drawable/white_background"
             android:fontFamily="@font/fcbarcelona_primary"
             android:gravity="start|center_vertical"
-            android:hint="State"
+            android:hint="Zip Code"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"
             android:singleLine="true"
@@ -166,7 +167,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="@+id/guideline1"
-        app:layout_constraintTop_toBottomOf="@+id/edStreet" />
+        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
     <LinearLayout
         android:layout_width="0dp"

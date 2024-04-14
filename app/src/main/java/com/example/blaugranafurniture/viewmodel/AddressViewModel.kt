@@ -42,9 +42,9 @@ class AddressViewModel @Inject constructor(
     private fun validateInputs(address: Address): Boolean {
         return address.addressTitle.trim().isNotEmpty()&&
                 address.fullName.trim().isNotEmpty()&&
+                address.email.trim().isNotEmpty()&&
                 address.phone.trim().isNotEmpty()&&
-                address.street.trim().isNotEmpty()&&
                 address.city.trim().isNotEmpty()&&
-                address.state.trim().isNotEmpty()
+                address.zipCode.trim().isNotEmpty()
     }
 }

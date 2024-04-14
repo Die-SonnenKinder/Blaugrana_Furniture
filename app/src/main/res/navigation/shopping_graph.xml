@@ -114,6 +114,9 @@
         <argument
             android:name="product"
             app:argType="com.example.blaugranafurniture.data.CartProduct[]" />
+        <action
+            android:id="@+id/action_billingFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
     </fragment>
 
 </navigation>
