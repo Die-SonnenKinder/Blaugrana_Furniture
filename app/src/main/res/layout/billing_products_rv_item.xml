@@ -56,16 +56,16 @@
             android:fontFamily="@font/fcbarcelona_primary"
             android:text="$50"
             android:layout_marginTop="4dp"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textColor="@color/g_gray700"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@id/tvProductCartName"
             app:layout_constraintTop_toBottomOf="@id/tvProductCartName"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageCartProductColor"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginTop="8dp"
             android:src="@color/g_blue"
             app:layout_constraintStart_toStartOf="@id/tvProductCartPrice"
@@ -73,8 +73,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageCartProductSize"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_marginStart="5dp"
             android:src="@color/g_blue_gray200"
             app:layout_constraintStart_toEndOf="@id/imageCartProductColor"
@@ -102,6 +102,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="1"
+            android:textSize="20sp"
+            android:fontFamily="@font/fcbarcelona_primary"
             android:layout_marginEnd="5dp"/>
 
 
