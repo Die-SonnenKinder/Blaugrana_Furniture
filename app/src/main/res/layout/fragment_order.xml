@@ -4,14 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/blaugrana_gradient"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarAllOrders"
         android:layout_width="0dp"
         android:layout_height="?actionBarSize"
-        app:layout_constraintEnd_toEndOf="@id/guideline2"
-        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,20 +32,20 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_arrow_left"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/black" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:fontFamily="@font/fcbarcelona_light"
+                android:layout_marginStart="8dp"
+                android:fontFamily="@font/fcbarcelona_primary"
                 android:text="All orders"
-                android:textColor="@color/black"
-                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:textSize="32sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/imageCloseOrders"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -85,7 +95,7 @@
         android:fontFamily="@font/fcbarcelona_light"
         android:gravity="center"
         android:text="No orders to show"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="15sp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
