@@ -1,12 +1,14 @@
 package com.example.blaugranafurniture.adapters
+import android.content.res.ColorStateList
 import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.Address
 import com.example.blaugranafurniture.databinding.AddressRvItemBinding
-
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.Adapter
@@ -22,6 +24,7 @@ class AddressAdapter : Adapter<AddressAdapter.AddressViewHolder>() {
                 buttonAddress.text = address.addressTitle
                 if (isSelected){
                     buttonAddress.background = ColorDrawable(itemView.context.resources.getColor(R.color.g_yellow))
+
                 }else{
                     buttonAddress.background = ColorDrawable(itemView.context.resources.getColor(R.color.g_white))
                 }
