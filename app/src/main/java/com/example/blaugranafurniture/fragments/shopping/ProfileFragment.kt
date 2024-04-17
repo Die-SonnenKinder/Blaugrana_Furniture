@@ -46,6 +46,9 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
             findNavController().navigate(R.id.action_profileFragment_to_userAccountFragment)
         }
 
+        binding.tvAllOrders.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_allOrderFragment)
+        }
         binding.linearLogOut.setOnClickListener {
             viewModel.logout()
             val intent = Intent(requireActivity(), LoginRegisterActivity::class.java)

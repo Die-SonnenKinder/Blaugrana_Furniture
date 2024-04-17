@@ -2,10 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/parent_linear"
+    android:background="@drawable/border_gradient"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+
+
+    >
 
 
     <LinearLayout
@@ -22,31 +28,27 @@
 
         <TextView
             android:id="@+id/tvOrderId"
-            style="@style/MediumTextViewThin"
+            android:fontFamily="@font/fcbarcelona_primary"
+            android:textSize="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
             tools:text="@tools:sample/lorem" />
 
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
+            android:layout_marginTop="16dp"
             android:src="@drawable/ic_arrow" />
 
     </LinearLayout>
 
     <TextView
         android:id="@+id/tvOrderDate"
+        android:fontFamily="@font/fcbarcelona_primary"
+        android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem" />
-
-    <View
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/g_gray700"
-        android:backgroundTint="@color/g_blue_gray200" />
 </LinearLayout>
