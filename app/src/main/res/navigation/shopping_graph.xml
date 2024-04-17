@@ -102,7 +102,11 @@
         android:id="@+id/addressFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.AddressFragment"
         android:label="AddressFragment"
-        tools:layout="@layout/fragment_address"/>
+        tools:layout="@layout/fragment_address">
+        <action
+            android:id="@+id/action_addressFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
     <fragment
         android:id="@+id/billingFragment"
         android:name="com.example.blaugranafurniture.fragments.shopping.BillingFragment"

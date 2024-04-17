@@ -17,6 +17,7 @@ class AllOrderAdapter: Adapter<AllOrderAdapter.OrdersViewHolder>() {
     inner class OrdersViewHolder (private val binding: OrderItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(order: Order) {
             binding.apply {
+                tvOrderStatus.text = "${order.orderStatus} -"
                 tvOrderId.text = order.orderID.toString()
                 tvOrderDate.text = order.date
                 val resource = itemView.resources
@@ -29,16 +30,16 @@ class AllOrderAdapter: Adapter<AllOrderAdapter.OrdersViewHolder>() {
                         ColorDrawable(resource.getColor(R.color.g_red))
                     }
                     is OrderStatus.Confirmed -> {
-                        ColorDrawable(resource.getColor(R.color.g_orange_yellow))
+                        ColorDrawable(resource.getColor(R.color.g_blue))
                     }
                     is OrderStatus.Shipped -> {
-                        ColorDrawable(resource.getColor(R.color.g_green))
+                        ColorDrawable(resource.getColor(R.color.g_dark_blue))
                     }
                     is OrderStatus.Delivered -> {
                         ColorDrawable(resource.getColor(R.color.g_green))
                     }
                     is OrderStatus.Returned -> {
-                        ColorDrawable(resource.getColor(R.color.g_red))
+                        ColorDrawable(resource.getColor(R.color.g_light_red))
                     }
                 }
 

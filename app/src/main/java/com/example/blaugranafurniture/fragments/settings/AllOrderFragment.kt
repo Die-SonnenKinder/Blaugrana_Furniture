@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blaugranafurniture.R
+
 import com.example.blaugranafurniture.adapters.AllOrderAdapter
 import com.example.blaugranafurniture.databinding.FragmentOrderBinding
 import com.example.blaugranafurniture.util.Resource
@@ -41,6 +42,8 @@ class AllOrderFragment : Fragment() {
         binding.imageCloseOrders.setOnClickListener {
             findNavController().navigate(R.id.action_allOrderFragment_to_profileFragment)
         }
+
+
         lifecycleScope.launchWhenStarted {
             viewModel.allOrder.collectLatest {
                 when (it) {

@@ -55,7 +55,9 @@ class ProfileFragment: Fragment(R.layout.fragment_profile) {
             startActivity(intent)
             requireActivity().finish()
         }
-
+        binding.tvBilling.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_addressFragment)
+        }
         binding.tvVersion.text = "Version ${BuildConfig.VERSION_CODE}"
 
         lifecycleScope.launchWhenStarted {

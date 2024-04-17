@@ -55,16 +55,22 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
         setupViewPager()
 
         binding.imageClose.setOnClickListener{
-
                 findNavController().navigate(R.id.action_productsDetailsFragment_to_homeFragment)
-
         }
 
         sizesAdapter.onItemClick = {selectedSize=it}
         colorsAdapter.onItemClick = {selectedColors=it}
 
         binding.buttonAddToCart.setOnClickListener {
-            viewModel.addUpdateProductInCart(CartProduct(product,1,selectedColors,selectedSize))
+            if (product.colors.isNullOrEmpty() || product.sizes.isNullOrEmpty()) {
+                viewModel.addUpdateProductInCart(CartProduct(product, 1, selectedColors, selectedSize))
+            } else {
+                if (selectedColors == null || selectedSize == null) {
+                    Toast.makeText(requireContext(), "Please select color and size", Toast.LENGTH_SHORT).show()
+                } else {
+                    viewModel.addUpdateProductInCart(CartProduct(product, 1, selectedColors, selectedSize))
+                }
+            }
         }
 
         lifecycleScope.launchWhenStarted {
@@ -75,7 +81,6 @@ class ProductsDetailsFragment: Fragment(R.layout.fragment_product_details) {
                     }
                     is Resource.Success -> {
                         binding.buttonAddToCart.revertAnimation()
-                        binding.buttonAddToCart.setBackgroundColor(resources.getColor(R.color.g_blue_gray200))
                     }
                     is Resource.Error -> {
                         binding.buttonAddToCart.stopAnimation()

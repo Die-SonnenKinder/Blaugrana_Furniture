@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.Address
 import com.example.blaugranafurniture.databinding.FragmentAddressBinding
 import com.example.blaugranafurniture.util.Resource
@@ -61,6 +62,9 @@ class AddressFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+            imageAddressClose.setOnClickListener {
+                findNavController().navigate(R.id.action_addressFragment_to_profileFragment)
+            }
             buttonSave.setOnClickListener {
                 val addressTitle =  edAddressTitle.text.toString()
                 val fullName =  edFullName.text.toString()
