@@ -60,11 +60,11 @@ class AddressFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.imageAddressBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
         binding.apply {
-            imageAddressClose.setOnClickListener {
-                findNavController().navigate(R.id.action_addressFragment_to_profileFragment)
-            }
+
             buttonSave.setOnClickListener {
                 val addressTitle =  edAddressTitle.text.toString()
                 val fullName =  edFullName.text.toString()

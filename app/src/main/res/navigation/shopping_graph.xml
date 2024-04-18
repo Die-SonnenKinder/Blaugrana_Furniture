@@ -15,7 +15,11 @@
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_homeFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
+            app:destination="@id/cartFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/from_right" />
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment"
@@ -25,7 +29,11 @@
             app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_productsDetailsFragment"
-            app:destination="@id/productsDetailsFragment" />
+            app:destination="@id/productsDetailsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -39,13 +47,25 @@
         tools:layout="@layout/fragment_cart">
         <action
             android:id="@+id/action_cartFragment_to_productsDetailsFragment"
-            app:destination="@id/productsDetailsFragment" />
+            app:destination="@id/productsDetailsFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
         <action
             android:id="@+id/action_cartFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_cartFragment_to_billingFragment"
-            app:destination="@id/billingFragment" />
+            app:destination="@id/billingFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -67,11 +87,12 @@
             app:popEnterAnim="@anim/from_right"
             app:popExitAnim="@anim/to_left" />
         <action
-            android:id="@+id/action_profileFragment_to_addressFragment"
-            app:destination="@id/addressFragment" />
-        <action
             android:id="@+id/action_profileFragment_to_allOrderFragment"
-            app:destination="@id/allOrderFragment" />
+            app:destination="@id/allOrderFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/from_right" />
     </fragment>
     <fragment
         android:id="@+id/userAccountFragment"
@@ -96,7 +117,11 @@
             app:argType="com.example.blaugranafurniture.data.Product" />
         <action
             android:id="@+id/action_productsDetailsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/to_top" />
     </fragment>
     <fragment
         android:id="@+id/addressFragment"
@@ -104,8 +129,12 @@
         android:label="AddressFragment"
         tools:layout="@layout/fragment_address">
         <action
-            android:id="@+id/action_addressFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            android:id="@+id/action_addressFragment_to_billingFragment"
+            app:destination="@id/billingFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom"
+            app:popEnterAnim="@anim/from_bottom"
+            app:popExitAnim="@anim/from_top" />
     </fragment>
     <fragment
         android:id="@+id/billingFragment"
@@ -114,7 +143,11 @@
         tools:layout="@layout/fragment_billing">
         <action
             android:id="@+id/action_billingFragment_to_addressFragment"
-            app:destination="@id/addressFragment" />
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
         <argument
             android:name="totalPrice"
             app:argType="float" />
@@ -123,7 +156,11 @@
             app:argType="com.example.blaugranafurniture.data.CartProduct[]" />
         <action
             android:id="@+id/action_billingFragment_to_cartFragment"
-            app:destination="@id/cartFragment" />
+            app:destination="@id/cartFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left" />
     </fragment>
     <fragment
         android:id="@+id/allOrderFragment"
@@ -132,10 +169,17 @@
         tools:layout="@layout/fragment_order">
         <action
             android:id="@+id/action_allOrderFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right" />
         <action
             android:id="@+id/action_allOrderFragment_to_orderDetailFragment"
-            app:destination="@id/orderDetailFragment" />
+            app:destination="@id/orderDetailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailFragment"
@@ -143,7 +187,11 @@
         android:label="OrderDetailFragment" >
         <action
             android:id="@+id/action_orderDetailFragment_to_allOrderFragment"
-            app:destination="@id/allOrderFragment" />
+            app:destination="@id/allOrderFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_left"/>
         <argument
             android:name="order"
             app:argType="com.example.blaugranafurniture.data.Order" />
