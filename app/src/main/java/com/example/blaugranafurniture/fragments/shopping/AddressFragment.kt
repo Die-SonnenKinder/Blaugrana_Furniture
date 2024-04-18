@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.data.Address
 import com.example.blaugranafurniture.databinding.FragmentAddressBinding
 import com.example.blaugranafurniture.util.Resource
@@ -59,8 +60,11 @@ class AddressFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.imageAddressBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
         binding.apply {
+
             buttonSave.setOnClickListener {
                 val addressTitle =  edAddressTitle.text.toString()
                 val fullName =  edFullName.text.toString()

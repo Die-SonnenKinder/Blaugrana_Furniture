@@ -27,13 +27,22 @@
             android:src="@color/black" />
 
         <TextView
-            android:id="@+id/tvOrderId"
+            android:id="@+id/tvOrderStatus"
             android:fontFamily="@font/fcbarcelona_primary"
             android:textSize="24sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+
+            tools:text="@tools:sample/lorem" />
+        <TextView
+            android:id="@+id/tvOrderId"
+            android:fontFamily="@font/fcbarcelona_primary"
+            android:textSize="24sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:layout_marginStart="4dp"
             tools:text="@tools:sample/lorem" />
 
         <ImageView

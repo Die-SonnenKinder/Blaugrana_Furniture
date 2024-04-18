@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.blaugranafurniture.R
 import com.example.blaugranafurniture.adapters.BillingProductAdapter
 import com.example.blaugranafurniture.data.OrderStatus
+import com.example.blaugranafurniture.data.OrderStatus.Canceled.status
 import com.example.blaugranafurniture.data.getOrderStatus
 import com.example.blaugranafurniture.databinding.FragmentOrderDetailBinding
 import com.example.blaugranafurniture.util.VerticalItemDecroration
@@ -43,25 +44,39 @@ class OrderDetailFragment: Fragment() {
             tvOrderId.text = "Order #${order.orderID}"
 
 
-            stepView.setSteps(
-                mutableListOf(
-                    OrderStatus.Ordered.status,
-                    OrderStatus.Confirmed.status,
-                    OrderStatus.Shipped.status,
-                    OrderStatus.Delivered.status,
-                )
+            val stepsList = mutableListOf(
+                OrderStatus.Ordered.status,
+                OrderStatus.Confirmed.status,
+                OrderStatus.Shipped.status,
+                OrderStatus.Delivered.status
             )
 
-            val currentOrderState = when (getOrderStatus(order.orderStatus)) {
+            when (order.orderStatus) {
+                OrderStatus.Canceled.status -> {
+                    stepsList[0] = OrderStatus.Canceled.status
+                    stepsList[3] = OrderStatus.Delivered.status
+                }
+                OrderStatus.Returned.status -> {
+                    stepsList.add(4, OrderStatus.Returned.status)
+                }
+            }
+
+            binding.stepView.setSteps(stepsList)
+
+            val currentOrderState = when (val status = getOrderStatus(order.orderStatus)) {
                 is OrderStatus.Ordered -> 0
                 is OrderStatus.Confirmed -> 1
                 is OrderStatus.Shipped -> 2
                 is OrderStatus.Delivered -> 3
+                is OrderStatus.Returned -> 4
+
                 else -> 0
+
             }
 
+
             stepView.go(currentOrderState, false)
-            if (currentOrderState == 3) {
+            if (currentOrderState == 3 || currentOrderState == 4 || getOrderStatus(order.orderStatus) == OrderStatus.Canceled) {
                 stepView.done(true)
             }
 

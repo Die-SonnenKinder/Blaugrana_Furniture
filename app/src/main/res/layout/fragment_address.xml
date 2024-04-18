@@ -17,10 +17,10 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageAddressClose"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_close"
+                android:id="@+id/imageAddressBack"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_arrow_left"
                 android:scaleType="centerInside"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,9 +37,9 @@
                 android:text="Address"
                 android:textSize="32sp"
                 android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="@+id/imageAddressClose"
-                app:layout_constraintStart_toEndOf="@id/imageAddressClose"
-                app:layout_constraintTop_toTopOf="@+id/imageAddressClose" />
+                app:layout_constraintBottom_toBottomOf="@+id/imageAddressBack"
+                app:layout_constraintStart_toEndOf="@id/imageAddressBack"
+                app:layout_constraintTop_toTopOf="@+id/imageAddressBack" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.appcompat.widget.Toolbar>
